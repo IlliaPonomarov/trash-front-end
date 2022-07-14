@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Learn!</title>
+    </head>
+    <body>
+
+        <div id="app">
+                <h1>{{ greeting }}</h1>
+                <input v-model="greeting" />
+        </div>
+
+        
+
+
+
+        <script src="https://unpkg.com/vue@next"></script>
+        <script>
+          let app = Vue.createApp({
+
+            data: function(){
+                return{
+                    greeting: 'Hello World!'
+                }
+            }
+
+          }).mount('#app')
+
+
+        </script>
+    </body>
+</html>
