@@ -2,40 +2,78 @@ let app = Vue.createApp({
 
     data: function(){
         return{
-            greeting: 'Hello World!',
-            isVisible: true,
-            isVisible2: true
+            
         }
     },
-
 
   })
 
     app.component('login-form', {
+
+       
+
         template: `
             <form @submit.prevent.stop="handleSubmit">
                 <h2 style="margin: 10px">{{ title }}</h2>
-                <input type="email"/>
-                <input type="password"/>
+                <custom-input v-model="email" :label="emailLabel" />
+                <custom-input v-model="password" :label="passwordLabel" />
                 <button>Log in</button>
             </form>
         `,
 
+        components: ['custom-input'],
+
         data(){
             return{
-                title: 'Login Form'
+                title: 'Login Form',
+                email: '',
+                password: '',
+                emailLabel: 'Email',
+                passwordLabel: 'Password'
             }
         },
 
-        methods:{
+        methods: {
             handleSubmit(){
                
-                console.log('submmited')
+                console.log(this.email)
+                console.log(this.password) 
+                    
+                }
             }
         }
 
+    )
 
-    })
+    app.component( 'custom-input' , {
+        props: ['label', 'modelValue'],
+
+        template: `
+        <label>{{ label }}</label>
+        <input type="text" v-model="inputValue"/>
+        `,
+
+        computed: {
+            inputValue: {
+                get(){
+                    return this.modelValue
+                },
+
+                set(value){
+                    this.$emit('update:modelValue', value)
+                }
+
+            }
+        },
+
+        // data(){
+        //     return{
+        //         inputValue: ''
+        //     }
+        // }
+
+    }
+    )
 
 app.mount('#app')
 
