@@ -2,12 +2,38 @@
 <html>
     <head>
         <title>Vue Learn!</title>
+        <style>
+            .box {
+                background-color: purple;
+                height: 200px;
+                width: 200px;
+            }
+
+            .box.two{
+                background-color: red;
+                height: 200px;
+                width: 200px;
+            }
+
+            .box.three{
+                background-color:violet;
+                height: 200px;
+                width: 200px;
+            }
+        </style>
     </head>
     <body>
 
         <div id="app">
                 <h1>{{ greeting }}</h1>
                 <input v-model="greeting" />
+                <hr/>
+
+
+        <div v-if="isVisible" class="box"></div>
+        <div v-else-if="isVisible2" class="box two"></div>
+        <div v-else="isVisible2" class="box three"></div>
+
         </div>
 
         
@@ -20,7 +46,9 @@
 
             data: function(){
                 return{
-                    greeting: 'Hello World!'
+                    greeting: 'Hello World!',
+                    isVisible: false,
+                    isVisible2: true
                 }
             }
 
