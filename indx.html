@@ -33,10 +33,11 @@
                 <input v-model="greeting" />
                 <hr/>
 
+        
+        
+            <button @click="toggleBox">Show Box</button>
+            <div v-if="isVisible" class="box"></div>
 
-        <div v-if="isVisible" class="box"></div>
-        <div v-else-if="isVisible2" class="box two"></div>
-        <div v-else="isVisible2" class="box three"></div>
 
         </div>
 
@@ -51,10 +52,22 @@
             data: function(){
                 return{
                     greeting: 'Hello World!',
-                    isVisible: false,
+                    isVisible: true,
                     isVisible2: true
                 }
+            },
+
+
+            methods: {
+
+                toggleBox: function () {
+                    this.isVisible = !this.isVisible
+                }
             }
+
+
+
+
 
           }).mount('#app')
 
