@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM Learn!</title>
+       <script src="../dom/dom.js" defer></script>
+        <link rel="stylesheet" type="text/css" href="../dom/style.css"
+    </head>
+    <body>
+
+    <div class="lesson">
+        <div class="lesson__text">Text</div>
+        <ul name="list" class="lesson__list">
+            <li class="lesson__item-list lesson__item-red">Paragraph 1</li>
+            <li id="listItem" class="lesson__item-list" >Paragraph 2</li>
+            <li class="lesson__item-list">Paragraph 3
+                <ul class="lesson__sub-list">
+                    <li class="lesson__item-sub-list">Under Paragraph 1</li>
+                    <li data-item="85" class="lesson__item-sub-list">Under Paragraph 2</li>
+                    <li class="lesson__item-sub-list">Under Paragraph 3</li>
+                </ul>
+            <li class="lesson__item-list lesson__item-blue">Paragraph 4</li>
+            </li>
+        </ul>
+    </div>  
+
+    </body>
+</html>
